@@ -13,7 +13,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import am.training.petclinic.PetClinicSharedModel.model.Pet;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Owner {
 	@Id

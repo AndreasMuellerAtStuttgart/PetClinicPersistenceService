@@ -10,7 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 
 import am.training.petclinic.PetClinicSharedModel.model.DoctorExperience;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Doctor {
 	@Id

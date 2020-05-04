@@ -3,6 +3,7 @@ package am.training.PetClinicPersistenceService.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,14 @@ import javax.persistence.Version;
 import am.training.petclinic.PetClinicSharedModel.model.Doctor;
 import am.training.petclinic.PetClinicSharedModel.model.Owner;
 import am.training.petclinic.PetClinicSharedModel.model.Pet;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Appointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
