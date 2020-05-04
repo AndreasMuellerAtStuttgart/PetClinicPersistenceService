@@ -1,7 +1,9 @@
 package am.training.PetClinicPersistenceService.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,10 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
-import am.training.petclinic.PetClinicSharedModel.model.Pet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,7 +41,6 @@ public class Owner {
 	@Column(name = "birth_date")
 	Date birthDate;
 	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="pet_id")
-	Pet pet;
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+	List<Pet> pets;
 }
