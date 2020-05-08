@@ -17,7 +17,9 @@ import javax.persistence.Version;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -32,15 +34,15 @@ public class Owner {
 	@Version
 	int version;
 	
-	@Column(name = "first_name")
+	@Column(name = "first_name", nullable = false)
 	String firstName;
 	
-	@Column(name = "last_name")
+	@Column(name = "last_name", nullable = false)
 	String lastName;
 	
-	@Column(name = "birth_date")
+	@Column(name = "birth_date", nullable = false)
 	Date birthDate;
 	
-	@OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "owner", cascade = {CascadeType.REMOVE, CascadeType.MERGE})
 	List<Pet> pets;
 }

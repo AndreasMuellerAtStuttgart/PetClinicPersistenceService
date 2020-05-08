@@ -15,7 +15,9 @@ import javax.persistence.Version;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -30,10 +32,10 @@ public class Pet {
 	@Version
 	int version;
 	
-	@Column(name = "name")
+	@Column(name = "name", nullable = false)
 	String name;
 	
-	@Column(name = "animal_type")
+	@Column(name = "animal_type", nullable = false)
 	String animalType;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
